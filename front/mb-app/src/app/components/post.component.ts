@@ -34,7 +34,6 @@ export class PostComponent implements OnInit, OnChanges {
     let postTemp = this.post;
     this.postsService.destroy(this.post.id).subscribe(
       () => {
-        //console.log('post deleted');
         this.postsService.onePost = postTemp;
         this.snackbarService.message = { text: 'Post deleted!'};
       }, err => console.log(err));
@@ -65,10 +64,11 @@ export class PostComponent implements OnInit, OnChanges {
         this.canDelete = false;
       } else {
         this.canDelete = true;
-      }
-      if (this.loggedAuthor && this.post.author.id === this.loggedAuthor.id) {
-          this.post.author.avatarimage = this.loggedAuthor.avatarimage;
-          this.makeAvatar();
+
+        if (this.loggedAuthor && this.post.author.id === changes['loggedAuthor'].currentValue.id) {
+            this.post.author.avatarimage = this.loggedAuthor.avatarimage;
+            this.makeAvatar();
+        }
       }
     }
   }

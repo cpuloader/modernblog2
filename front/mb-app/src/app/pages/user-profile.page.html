@@ -12,21 +12,27 @@
         </div>
       </div>
       <div class="btn btn-file user-profile-page_avatar-image-input">
-        <span class="user-profile-page_image-button">Change picture</span>
+        <span class="user-profile-page_image-button" [translate]="'BUTTON.CHANGEAVATAR'">Change picture</span>
         <input type="file" (change)="updateAvatar($event)" accept="image/*"/>
       </div>
 
       <div class="user-profile-page_profile-avatar" [ngStyle]="profileAvatar"></div>
 
       <div [hidden]="!error" class="alert alert-danger user-profile-page_image-error">{{ error }}</div>
+      <div [hidden]="!converting" class="alert alert-info user-profile-page_image-status">
+        <span [translate]="'USERPROFILEPAGE.AVATARCONVERTING'">Preparing...</span>
+      </div>
     </div>
   </div>
-  <div class="user-profile-page_loading-posts" [hidden]="loaded">Loading posts...</div>
+  <div class="user-profile-page_loading-posts" [hidden]="loaded">
+    <span [translate]="'USERPROFILEPAGE.LOADING.POSTS'">Loading posts...</span>
+  </div>
   <span [hidden]="!loaded">
     <posts [posts]="profilePosts" [loggedAuthor]="loggedAuthor"></posts>
   </span>
   <div class="user-profile-page_load-more">
-    <button *ngIf="nextPage" class="btn btn-raised" type="button"
-            (click)="loadMore()">Load more...</button>
+    <button *ngIf="nextPage" class="btn btn-raised" type="button" (click)="loadMore()">
+      <span [translate]="'BUTTON.LOADMORE'">Load more</span>
+    </button>
   </div>
 </div>

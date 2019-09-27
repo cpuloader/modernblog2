@@ -10,15 +10,19 @@
     </div>
     <button *ngIf="loggedAuthor && loggedAuthor.username !== profile.username"
             class="btn btn-raised btn-primary btn-xs" type="button" (click)="sendMessage()">
-      <i class="material-icons">mail_outline</i> Send message
+      <i class="material-icons">mail_outline</i>&nbsp;
+      <span [translate]="'PROFILEPAGE.MESSAGE'">Send message</span>
     </button>
   </div>
-  <div class="profile-page_loading-posts" [hidden]="loaded">Loading posts...</div>
+  <div class="profile-page_loading-posts" [hidden]="loaded">
+    <span [translate]="'PROFILEPAGE.LOADING.POSTS'">Loading posts...</span>
+  </div>
   <span [hidden]="!loaded">
     <posts [posts]="profilePosts" [loggedAuthor]="loggedAuthor"></posts>
   </span>
   <div class="profile-page_load-more">
-    <button *ngIf="nextPage" class="btn btn-raised" type="button"
-            (click)="loadMore()">Load more...</button>
+    <button *ngIf="nextPage" class="btn btn-raised" type="button" (click)="loadMore()">
+      <span [translate]="'BUTTON.LOADMORE'">Load more</span>
+    </button>
   </div>
 </div>

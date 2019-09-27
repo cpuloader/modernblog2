@@ -18,7 +18,8 @@
     "CLOSE": "Close",
     "UPDATE": "Update",
     "ADDIMAGES": "Add images",
-    "READMORE": "Read more..."
+    "READMORE": "Read more...",
+    "CHANGEAVATAR": "Change picture"
   },
   "PLACEHOLDER": {
     "ENTERCOMMENT": "enter your comment here",
@@ -76,6 +77,20 @@
     "LOADING": {
       "COMMENTS": "Loading commengs..."
     }
+  },
+ "PROFILEPAGE": {
+    "MESSAGE": "Send message",
+    "NOPOSTS": "No posts",
+    "LOADING": {
+      "POSTS": "Loading posts..."
+    }
+  },
+ "USERPROFILEPAGE": {
+    "NOPOSTS": "No posts",
+    "LOADING": {
+      "POSTS": "Loading posts..."
+    },
+    "AVATARCONVERTING": "Preparing..."
   },
   "COMPONENT": {
     "POST": {

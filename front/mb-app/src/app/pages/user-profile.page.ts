@@ -32,6 +32,8 @@ export class UserProfilePage implements OnInit {
   nextPage: number = 0;
   showNextPageButton: boolean;
   error:any;
+  converting: boolean = false;
+  avatarUploading: boolean = false;
 
   @ViewChild('avaprogressbar', { static: false }) avaProgressBar: ElementRef;
   @ViewChild('avaprogress', { static: false }) avaProgress: ElementRef;
@@ -76,6 +78,9 @@ export class UserProfilePage implements OnInit {
 
   updateAvatar(event: any): void {
     this.error = '';
+    this.converting = false;
+    if (this.avatarUploading) return;
+    this.avatarUploading = true;
     let file: File = event.target.files[0];
     //console.log(file);
     if (!file) return;
@@ -104,6 +109,7 @@ export class UserProfilePage implements OnInit {
             } else if (event instanceof HttpResponse) {
                 if (event.status == 201) {
                     this.profile.avatarimage = event.body;
+                    this.loggedAuthor = this.profile;
                     this.makeAvatar();
                     this.authService.setMeToStorage(this.profile); // update logged author
                 } else {
@@ -116,9 +122,15 @@ export class UserProfilePage implements OnInit {
                       });
                     }
                 }
+                this.converting = false;
+                this.avatarUploading = false;
             }
         },
-        err => { this.error = 'Error!'; },
+        err => {
+           this.error = 'Error!';
+           this.converting = false;
+           this.avatarUploading = false;
+        },
         () => this.avatarUpdater.unsubscribe()
       );
   }
@@ -129,6 +141,7 @@ export class UserProfilePage implements OnInit {
     this.renderer.setAttribute(this.avaProgress.nativeElement, 'aria-valuenow', progress.toString());
     if (progress == 100) {
       this.renderer.setStyle(this.avaProgressBar.nativeElement, 'display', 'none');
+      this.converting = true;
     }
   }
 

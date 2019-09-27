@@ -34,7 +34,7 @@ export class PostUpdateComponent {
 
   show(): void {
     this.error = '';
-    this.updatedPost = ParsePost(JSON.parse(JSON.stringify(this.post))); // make temporary deep copy
+    this.updatedPost = JSON.parse(JSON.stringify(this.post)); // make temporary deep copy
     //console.log(this.updatedPost);
     this.images = this.updatedPost.post_images;
     this.visible = true;
@@ -153,37 +153,4 @@ export class PostUpdateComponent {
   ngOnDestroy() {
     if (this.createImageSub) this.createImageSub.unsubscribe();
   }
-
-}
-
-function ParsePost(data: any): Post {
-  let author = <Author>({
-    email: data.author.email,
-    username: data.author.username,
-    picture: data.author.picture,
-    id: data.author.id,
-    tagline: data.author.tagline
-  });
-  let images = data.post_images.map(ParseImage);
-  let post = <Post>({
-    id: data.id,
-    content: data.content,
-    comments: data.comments,
-    post_images: images,
-    author: author
-  });
-  return post;
-}
-
-function ParseImage(data: any): Image {
-  let image = new Image();
-  image.id = data.id;
-  image.picture = data.picture;
-  image.picture_for_post = data.picture_for_post;
-  image.picture_for_preview = data.picture_for_preview;
-  image.parent_post = data.parent_post;
-  image.parent_comment = data.parent_comment;
-  image.author = data.author;
-  //console.log('parsed image: ', image);
-  return image;
 }
