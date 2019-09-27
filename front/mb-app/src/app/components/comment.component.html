@@ -1,0 +1,20 @@
+<div class="comment-component_container">
+  <div class="jumbotron">
+    <div class="comment-component_remove-button" *ngIf="canDeleteComment" (click)="commentDelete()">
+      <i class="material-icons close">clear</i>
+    </div>
+    <div class="comment-component_meta">
+      <a routerLink="/user/{{ comment.author.username }}">
+        <div class="comment-component_author-picture" [ngStyle]="commentAvatar"></div>
+      </a>
+    </div>
+    <a class="comment-component_author" routerLink="/user/{{ comment.author.username }}">
+      {{ comment.author.username }}
+    </a>
+    <div class="comment-component_content" [linkParser]="comment.content" [detail]="true">
+      {{ comment.content }}
+    </div>
+    <div class="clear-float"></div>
+    <div class="comment-component_date" >{{ comment.created_at | dateFieldPipe }}</div>
+  </div>
+</div>

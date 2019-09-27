@@ -1,0 +1,40 @@
+.create-post-component {
+    &_content {
+        position: relative;
+        padding: 20px;
+    }
+
+    &_images-outer {
+        display: block;
+        max-height: 100px;
+        overflow: auto;
+        white-space: nowrap;
+    }
+
+    &_images-list {
+        position: relative;
+        display: inline-block;
+
+        img {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            opacity: 0.5;
+        }
+    }
+
+    &_image-remove {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        z-index: 11;
+    }
+
+    &_input {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 30px;
+        margin-bottom: 10px;
+    }
+}

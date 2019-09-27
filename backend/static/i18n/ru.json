@@ -1,0 +1,96 @@
+{
+  "HOME": {
+    "TITLE": "Привет!!",
+    "SELECT": "Изменить язык:",
+    "EN": "English",
+    "RU": "Русский",
+    "LOGIN": "Вход",
+    "LOGOUT": "Выход",
+    "RESIGTER": "Регистрация",
+    "SETTINGS": "Настройки"
+  },
+  "BUTTON": {
+    "LOADMORE": "Загрузить еще",
+    "SUBMIT": "Отправить",
+    "DELETEACCOUNT": "Удалить аккаунт",
+    "FORGOTPASSWORD": "Забыли пароль?",
+    "RESET": "Сбросить",
+    "BACK": "Назад",
+    "CLOSE": "Закрыть",
+    "UPDATE": "Обновить",
+    "ADDIMAGES": "Добавить изображения",
+    "READMORE": "Читать далее..."
+  },
+  "PLACEHOLDER": {
+    "ENTERCOMMENT": "ваш комментарий здесь",
+    "EMAIL": "chuck_norris@example.com",
+    "TAGLINE": "Приветствую всех здесь",
+    "USERNAME": "например Chuck Norris",
+    "ENTERPOST": "напишите что-нибудь тут.."
+  },
+  "ERRORS": {
+    "ERROR" : "Ошибка!",
+    "BIGFILE": "Слишком большой файл (> 5 MB)",
+    "WRONGTYPE": "Тип файла не JPG, GIF или PNG"
+  },
+  "LOGINPAGE": {
+    "TITLE": "Логин",
+    "FORM": {
+      "EMAIL": "Email",
+      "PASSWORD": "Пароль"
+    }
+  },
+  "REGISTERPAGE": {
+    "TITLE": "Регистрация",
+    "FORM": {
+      "EMAIL": "Email",
+      "USERNAME": "Имя пользователя",
+      "PASSWORD": "Пароль"
+    }
+  },
+  "REMINDPASSPAGE": {
+    "TITLE": "Сброс пароля",
+    "FORM": {
+      "USERNAME": "Имя пользователя",
+      "PASSWORD": "Пароль"
+    },
+    "DESCRIPTION": "Новый пароль будет выслан на вашу почту.",
+    "SENDING": "Отправка...",
+    "SUCCESS": "Новый пароль отправлен на вашу почту"
+  },
+  "SETTINGSPAGE": {
+    "TITLE": "Настройки",
+    "FORM": {
+      "EMAIL": "Ваш Email",
+      "PASSWORD": "Новый пароль",
+      "CONFIRMPASSWORD": "Подтверждение пароля",
+      "TAGLINE": "Тэглайн"
+    }
+  },
+  "LAYOUTPAGE": {
+    "LOADING": {
+      "POSTS": "Загрузка постов..."
+    }
+  },
+  "POSTPAGE": {
+    "COMMENTS": "Комментариев",
+    "NOCOMMENTS": "Нет комментариев",
+    "LOADING": {
+      "COMMENTS": "Загрузка комментариев..."
+    }
+  },
+  "COMPONENT": {
+    "POST": {
+      "COMMENTS": "Комментариев",
+      "NOCOMMENTS": "Нет комментариев"
+    },
+   "CREATEPOST": {
+      "TITLE": "Создать пост",
+      "ADDEDIMAGES": "Добавлено:"
+    },
+    "UPDATEPOST": {
+      "TITLE": "Изменить пост",
+      "ADDEDIMAGES": "Добавлено:"
+    }
+  }
+}

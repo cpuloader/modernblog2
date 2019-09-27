@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-sm-12">
+      <div class="well post-component_well">
+        <div class="post-component_meta" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()">
+          <a routerLink="/user/{{ post.author.username }}">
+            <div class="post-component_author-picture" [ngStyle]="postAvatar"></div>
+          </a>
+        </div>
+        <a class="post-component_author-list" routerLink="/user/{{ post.author.username }}">
+          {{ post.author.username }}
+        </a>
+        <p class="post-component_p"></p>
+        <div class="post-component_content">
+          <div class="post-component_content_inner" [linkParser]="post.content">
+            {{ post.content }}
+          </div>
+          <span [hidden]="!readmore"><a routerLink="/post/{{ post.id }}/" [translate]="'BUTTON.READMORE'"></a></span>
+          <div *ngIf="post.post_images.length">
+            <img src="{{ post.post_images[0].picture_for_post }}"/>
+          </div>
+        </div>
+        <div class="clear-float"></div>
+        <div class="post-component_date" >{{ post.created_at | dateFieldPipe }}</div>
+        <a class="post-component_id" routerLink="/post/{{ post.id }}/">
+          <span *ngIf="post.comments.length"><span [translate]="'COMPONENT.POST.COMMENTS'">Comments</span>: {{ post.comments.length }}</span>
+          <span *ngIf="!(post.comments.length)" [translate]="'COMPONENT.POST.NOCOMMENTS'">No comments</span>
+        </a>
+        <div *ngIf="canDelete" href="#" (click)="destroy()" class="post-component_remove-button">
+          <i class="material-icons close">clear</i>
+        </div>
+      </div>
+  </div>
+</div>

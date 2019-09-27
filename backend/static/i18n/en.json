@@ -1,0 +1,94 @@
+{
+  "HOME": {
+    "SELECT": "Change language:",
+    "EN": "English",
+    "RU": "Русский",
+    "LOGIN": "Login",
+    "LOGOUT": "Logout",
+    "RESIGTER": "Register",
+    "SETTINGS": "Settings"
+  },
+  "BUTTON": {
+    "LOADMORE": "Load more",
+    "SUBMIT": "Submit",
+    "DELETEACCOUNT": "Delete account",
+    "FORGOTPASSWORD": "Forgot password?",
+    "RESET": "Reset",
+    "BACK": "Back",
+    "CLOSE": "Close",
+    "UPDATE": "Update",
+    "ADDIMAGES": "Add images",
+    "READMORE": "Read more..."
+  },
+  "PLACEHOLDER": {
+    "ENTERCOMMENT": "enter your comment here",
+    "EMAIL": "ex. chuck_norris@example.com",
+    "TAGLINE": "ex. Welcome to my profile",
+    "USERNAME": "ex. Chuck Norris",
+    "ENTERPOST": "put some text here.."
+  },
+  "ERRORS": {
+    "ERROR" : "Error!",
+    "BIGFILE": "File is too big (> 5 MB), not added",
+    "WRONGTYPE": "Wrong file type! JPG, GIF, PNG only"
+  },
+  "LOGINPAGE": {
+    "TITLE": "Login",
+    "FORM": {
+      "EMAIL": "Email",
+      "PASSWORD": "Password"
+    }
+  },
+  "REGISTERPAGE": {
+    "TITLE": "Register",
+    "FORM": {
+      "EMAIL": "Email",
+      "USERNAME": "Username",
+      "PASSWORD": "Password"
+    }
+  },
+  "REMINDPASSPAGE": {
+    "TITLE": "Reset password",
+    "FORM": {
+      "USERNAME": "Username"
+    },
+    "DESCRIPTION": "New password will be sent to your email.",
+    "SENDING": "Sending...",
+    "SUCCESS": "New password was sent to you email"
+  },
+  "SETTINGSPAGE": {
+    "TITLE": "Settings",
+    "FORM": {
+      "EMAIL": "Email",
+      "PASSWORD": "New password",
+      "CONFIRMPASSWORD": "Confirm password",
+      "TAGLINE": "Tagline"
+    }
+  },
+  "LAYOUTPAGE": {
+    "LOADING": {
+      "POSTS": "Loading posts..."
+    }
+  },
+  "POSTPAGE": {
+    "COMMENTS": "Comments",
+    "NOCOMMENTS": "No comments",
+    "LOADING": {
+      "COMMENTS": "Loading commengs..."
+    }
+  },
+  "COMPONENT": {
+    "POST": {
+      "COMMENTS": "Comments",
+      "NOCOMMENTS": "No comments"
+    },
+    "CREATEPOST": {
+      "TITLE": "New post",
+      "ADDEDIMAGES": "Added images:"
+    },
+    "UPDATEPOST": {
+      "TITLE": "Update post",
+      "ADDEDIMAGES": "Added images:"
+    }
+  }
+}

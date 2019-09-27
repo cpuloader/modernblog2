@@ -1,0 +1,99 @@
+.chat-panel {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 10px;
+    height: 100vh;
+    background-color: #BBB;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    box-shadow: 0px 10px 10px #555;
+    z-index: 11;
+    transition-property: width;
+    transition-duration: 0.2s;
+
+    &_inside {
+        position: relative;
+        height: 100vh;
+        margin-top: 50px;
+        margin-right: 20px;
+        padding-top: 10px;
+        padding-bottom: 50px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        background-color: #009688;
+    }
+
+    &_handler {
+        position: absolute;
+        right: 0px;
+        top: 100px;
+        width: 12px;
+        height: 72px;
+        padding: 2px;
+        color: #bbb; /*white;*/
+        background-color:#222; /*#009688;*/
+        font-size: 10px;
+        letter-spacing: 40px;
+        cursor: pointer;
+    }
+
+    &_chat {
+        display: block;
+        width: 150px;
+        background-color: white;
+        margin: 10px;
+        border-radius: 1px;
+    }
+
+    &_chat-inside {
+        position: relative;
+        overflow-x: hidden;
+        padding: 5px;
+        box-shadow: 0px 8px 17px #555555;
+        cursor: pointer;
+    }
+
+    &_remove-button {
+        position: absolute;
+        right: 4px;
+        top: 5px;
+        margin: 0px;
+        padding: 0px;
+        width: 10px;
+        height: 10px;
+        cursor: pointer;
+    }
+
+    &_chat-close-icon {
+        font-size: 12px;
+    }
+
+    &_new-messages {
+        position: absolute;
+        top: 5px;
+        right: 25px;
+        width: 30%;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-bottom: 2px;
+        border-radius: 10%;
+        background-color: #222;
+        color: #EEE;
+        font-size: 10px;
+    }
+
+    &_chat-members {
+        font-size: 10px;
+
+        &_header {
+            margin-top: 3px;
+            margin-bottom: 3px;
+        }
+    }
+
+    &_empty {
+        text-align: center;
+        margin-top: 20px;
+    }
+}

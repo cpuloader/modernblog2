@@ -1,0 +1,54 @@
+<div class="col-md-4 col-md-offset-4">
+  <h1 [translate]="'SETTINGSPAGE.TITLE'">Settings</h1>
+  <div class="well" *ngIf="profile">
+    <form role="form" class="settings" (ngSubmit)="onSubmit()" #settingsForm="ngForm">
+      <div class="alert alert-danger" *ngIf="errors && errors.otherError">{{ errors.otherError }}</div>
+
+      <div class="alert alert-danger" *ngIf="errors && errors.email">{{ errors.email[0] }}</div>
+      <div class="form-group">
+        <label for="settings__email" [translate]="'SETTINGSPAGE.FORM.EMAIL'">Email</label>
+        <input type="email" class="form-control" id="settings__email"
+               style="text-transform: lowercase;"
+               [(ngModel)]="profile.email" placeholder="{{'PLACEHOLDER.EMAIL' | translate}}"
+               maxlength="40" name="email"/>
+      </div>
+
+      <div class="alert alert-danger" *ngIf="errors && errors.password">{{ errors.password[0] }}</div>
+      <div class="form-group">
+        <label for="settings__password" [translate]="'SETTINGSPAGE.FORM.PASSWORD'">New Password</label>
+        <input type="password" class="form-control" id="settings__password"
+               [(ngModel)]="profile.password" name="password"/>
+      </div>
+
+      <div class="alert alert-danger" *ngIf="errors && errors.confirm_password">{{ errors.confirm_password[0] }}</div>
+      <div class="form-group">
+        <label for="settings__confirm-password" [translate]="'SETTINGSPAGE.FORM.CONFIRMPASSWORD'">Confirm Password</label>
+        <input type="password" class="form-control" id="settings__confirm-password"
+               [(ngModel)]="profile.confirm_password"
+               name="confirm_password"/>
+      </div>
+
+      <div class="alert alert-danger" *ngIf="errors && errors.tagline">{{ errors.tagline[0] }}</div>
+      <div class="form-group">
+        <label for="settings__tagline" [translate]="'SETTINGSPAGE.FORM.TAGLINE'">Tagline</label>
+        <input class="form-control" id="settings__tagline"
+               [(ngModel)]="profile.tagline" placeholder="{{'PLACEHOLDER.TAGLINE' | translate}}"
+               maxlength="140" name="tagline"/>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" [disabled]="!settingsForm.form.valid">
+          <span [translate]="'BUTTON.SUBMIT'">Submit</span>
+        </button>
+
+        <button type="button" class="btn btn-danger float-right" (click)="doDelete()">
+          <span [translate]="'BUTTON.DELETEACCOUNT'">Delete Account</span>
+        </button>
+        <div class="clear-both"></div>
+      </div>
+    </form>
+
+
+  </div>
+  <div *ngIf="!profile" class="settings-page_not-logged">You must login</div>
+</div>

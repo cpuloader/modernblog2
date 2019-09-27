@@ -1,0 +1,16 @@
+.posts-component {
+    &_flex-container {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    &_flex {
+        flex: 0 1 25%;
+        flex-direction: row;
+    }
+
+    &_no-posts-here {
+        text-align: center;
+    }
+}

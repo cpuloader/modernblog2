@@ -1,0 +1,24 @@
+<div class="profile-page" *ngIf="!!profile">
+  <div class="jumbotron">
+    <h2 class="profile-page_username">{{ profile.username }}&ensp;</h2>
+    <p *ngIf="!profile.enabled" class="profile-page_deactivated">DEACTIVATED</p>
+    <p *ngIf="profile.is_online" class="profile-page_online">Online</p>
+    <p class="profile-page_tagline">{{ profile.tagline }}</p>
+    <div class="profile-page_avatar-progress">
+      <div class="profile-page_profile-avatar" [ngStyle]="profileAvatar"></div>
+      <div [hidden]="!error" class="alert alert-danger profile-page_image-error">{{ error }}</div>
+    </div>
+    <button *ngIf="loggedAuthor && loggedAuthor.username !== profile.username"
+            class="btn btn-raised btn-primary btn-xs" type="button" (click)="sendMessage()">
+      <i class="material-icons">mail_outline</i> Send message
+    </button>
+  </div>
+  <div class="profile-page_loading-posts" [hidden]="loaded">Loading posts...</div>
+  <span [hidden]="!loaded">
+    <posts [posts]="profilePosts" [loggedAuthor]="loggedAuthor"></posts>
+  </span>
+  <div class="profile-page_load-more">
+    <button *ngIf="nextPage" class="btn btn-raised" type="button"
+            (click)="loadMore()">Load more...</button>
+  </div>
+</div>

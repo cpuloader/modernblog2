@@ -1,0 +1,23 @@
+<div *ngIf="loggedAuthor" [ngStyle]="chatStyles" class="chat-panel">
+    <div (click)="showChatPanel()" class="chat-panel_handler"></div>
+    <div class="chat-panel_inside">
+        <span *ngIf="chats">
+          <span *ngIf="chats.length">
+           <div *ngFor="let chat of chats" class="chat-panel_chat">
+             <div (click)="showChat(chat)" class="chat-panel_chat-inside">
+               <div class="chat-panel_remove-button" href="#" (click)="chatDelete(chat); $event.stopPropagation();">
+                 <i class="material-icons close chat-panel_chat-close-icon">clear</i>
+               </div>
+               <div *ngIf="chat.unreadMsgs.length" class="chat-panel_new-messages">
+                 {{ chat.unreadMsgs.length }} new
+               </div>
+               <h6 class="chat-panel_chat-members_header">Members:</h6>
+               <em class="chat-panel_chat-members">{{ getMembers(chat) }}</em>
+             </div>
+           </div>
+          </span>
+          <p *ngIf="!chats.length" class="chat-panel_empty"><em>No chats yet</em></p>
+        </span>
+        <span *ngIf="!chats">Loading...</span>
+    </div>
+</div>

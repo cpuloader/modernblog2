@@ -1,0 +1,48 @@
+<div class="modal fade" tabindex="-1" [ngClass]="{'in': visibleAnimate}"
+     [ngStyle]="{'display': visible ? 'block' : 'none', 'opacity': visibleAnimate ? 1 : 0}"
+     (click)="hide()">
+  <div class="modal-dialog" (click)="$event.stopPropagation()">
+    <div class="modal-content">
+      <div class="create-post-component_content">
+        <form role="form" #postForm="ngForm">
+          <div [hidden]="!error" class="alert alert-danger">{{ error }}</div>
+
+          <div class="form-group">
+            <label for="post__content" [translate]="'COMPONENT.CREATEPOST.TITLE'">New post</label>
+            <textarea #textInput type="text" class="form-control post-form-field"
+                   rows="5" id="post__content"
+                   [(ngModel)]="post.content"
+                   placeholder="{{'PLACEHOLDER.ENTERPOST' | translate}}"
+                   name="content"
+                   required></textarea>
+          </div>
+        </form>
+        <div class="create-post-component_input">
+          <div class="btn btn-xs btn-file pull-right">
+            <span [translate]="'BUTTON.ADDIMAGES'">Add images</span>
+            <input type="file" (change)="startUploadImages($event)" accept="images/*" multiple="multiple"/>
+          </div>
+        </div>
+        <div *ngIf="images && images.length">
+          <h6 [translate]="'COMPONENT.CREATEPOST.ADDEDIMAGES'">Added images:</h6>
+        </div>
+        <div class="post-create-component_images-outer">
+          <div *ngFor="let image of images" class="create-post-component_images-list">
+            <img src="{{ image.picture_for_preview }}"/>
+            <i class="material-icons close create-post-component_image-remove" (click)="deleteImage(image.id)">clear</i>
+          </div>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-default" type="button" (click)="hide()">
+            <span [translate]="'BUTTON.CLOSE'">Close</span>
+          </button>
+          <button class="btn btn-primary" type="button" (click)="createPost()" [disabled]="!postForm.form.valid">
+            <span [translate]="'BUTTON.SUBMIT'">Submit</span>
+          </button>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+<div class="post-page" *ngIf="post">
+  <div class="jumbotron post-page_jumbotron">
+    <div class="post-page_remove-button" *ngIf="canEditPost" href="#" (click)="deletePost()">
+      <i class="material-icons close">clear</i>
+    </div>
+    <div class="post-page_meta">
+      <a class="post-page_meta_author" routerLink="/user/{{ post.author.username }}">
+        {{ post.author.username }}
+      </a>
+      <a routerLink="/user/{{ post.author.username }}">
+        <div class="post-page_meta_picture" [ngStyle]="authorAvatar"></div>
+      </a>
+    </div>
+    <div class="post-page_content-outer">
+      <div class="post-page_content-detail" [linkParser]="post.content" [detail]="true">
+        {{ post.content }}
+      </div>
+      <div *ngIf="post.post_images.length" class="post-page_uploaded-images">
+        <div *ngFor="let image of post.post_images">
+          <img class="post-page_content-image" src="{{ image.picture }}"/>
+        </div>
+      </div>
+      <br/>
+    </div>
+    <div class="clear-both"></div>
+    <table class="post-page_table">
+      <tr>
+        <th *ngIf="post">
+          <div class="post-page_date post-page_date" >{{ post.created_at | dateFieldPipe }}</div>
+          <div *ngIf="post.comments.length"class="post-page_comments">
+            <span [translate]="'POSTPAGE.COMMENTS'">Comments</span>: {{ post.comments.length }}
+          </div>
+          <div *ngIf="!post.comments.length"class="post-page_comments">
+            <span [translate]="'POSTPAGE.NOCOMMENTS'">No comments</span>
+          </div>
+        </th>
+        <th class="post-page_update-button">
+          <div *ngIf="canEditPost" href="#" (click)="updatePostDialog.show()" class="float-left">
+            <i class="material-icons close">create</i>
+          </div>
+        </th>
+      </tr>
+    </table>
+  </div>
+
+</div>
+<post-update-dialog [loggedAuthor]="loggedAuthor"
+                    [post]="post" (postUpdated)="onPostUpdated($event)"></post-update-dialog>
+
+<div *ngIf="loggedAuthor" class="jumbotron post-page_comment-form">
+  <form role="form" (ngSubmit)="submitComment()">
+    <div [hidden]="!error" class="alert alert-danger">{{ error }}</div>
+    <div class="form-group">
+      <textarea #commentInput type="text" class="form-control post-form-field" placeholder="{{'PLACEHOLDER.ENTERCOMMENT' | translate}}"
+                [(ngModel)]="newComment.content" name="content" required>
+      </textarea>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-xs post-page_comment-button">
+        <span [translate]="'BUTTON.SUBMIT'">Submit</span>
+      </button>
+    </div>
+  </form>
+</div>
+<div class="post-page_loading-comments" [hidden]="loaded">
+  <span [translate]="'POSTPAGE.LOADING.COMMENTS'">Loading comments...</span>
+</div>
+<div [hidden]="!loaded">
+  <div *ngFor="let comment of comments">
+    <comment [comment]="comment" [loggedAuthor]="loggedAuthor"
+             (commentDeleted)="onCommentDeleted($event)"></comment>
+  </div>
+  <div class="post-page_load-more">
+    <button *ngIf="nextPage" class="btn btn-raised" type="button" (click)="loadMore()">
+      <span [translate]="'BUTTON.LOADMORE'">Load more</span>
+    </button>
+  </div>
+</div>

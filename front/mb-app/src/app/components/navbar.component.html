@@ -1,0 +1,48 @@
+<nav class="navbar navbar-default navbar-fixed-top navbar-component_main" role="navigation">
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar">
+        <span class="sr-only">Toggle Navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <ul class="nav navbar-nav pull-left navbar-component_nav"
+        [ngStyle]="{'background-color': newMessages.length ? '#00b2a0' : 'inherit'}">
+        <li><a href="#">
+          <i class="material-icons close" (click)="openPanel()">mail_outline</i>
+          &nbsp;<span *ngIf="newMessages.length">{{ newMessages.length }}</span>
+        </a></li>
+      </ul>
+      <a class="navbar-brand navbar-component_brand" routerLink="/">Modern blog</a>
+    </div> <!-- ./navbar-header -->
+
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <ul class="nav navbar-nav pull-right">
+          <li *ngIf="loggedAuthor" data-toggle="collapse" data-target=".navbar-collapse.in">
+            <a routerLink="/profile">{{ loggedAuthor.username }}</a>
+          </li>
+          <li *ngIf="loggedAuthor" data-toggle="collapse" data-target=".navbar-collapse.in">
+            <a routerLink="/settings">
+              <span [translate]="'HOME.SETTINGS'">Settings</span>
+            </a>
+          </li>
+          <li *ngIf="loggedAuthor" data-toggle="collapse" data-target=".navbar-collapse.in">
+            <a (click)="logout()" href="#">
+              <span [translate]="'HOME.LOGOUT'">Logout</span>
+            </a>
+          </li>
+          <li *ngIf="!loggedAuthor" data-toggle="collapse" data-target=".navbar-collapse.in">
+            <a routerLink="/login">
+              <span [translate]="'HOME.LOGIN'">Login</span>
+            </a>
+          </li>
+          <li *ngIf="!loggedAuthor" data-toggle="collapse" data-target=".navbar-collapse.in">
+            <a routerLink="/register">
+              <span [translate]="'HOME.RESIGTER'">Register</span>
+            </a>
+          </li>
+      </ul>
+    </div> <!-- /.collapse.navbar-collapse -->
+
+</nav>

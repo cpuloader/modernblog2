@@ -1,0 +1,14 @@
+<div class="footer">
+  <div class="footer_language">
+    <div class="footer_language_title" [translate]="'HOME.SELECT'">Language:</div>
+    <div class="footer_language_list">
+      <div *ngFor="let lang of translate.getLangs()">
+        <span [hidden]="lang === translate.currentLang">
+          <button class="btn btn-raised" (click)="langChange(lang)">
+            {{ 'HOME.'+lang | uppercase | translate }}
+          </button>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

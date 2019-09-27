@@ -1,0 +1,15 @@
+<app-nav-bar [loggedAuthor]="author"
+             (openChatPanelFromNavbar)="onOpenChatPanel($event)">
+</app-nav-bar>
+<div class="container-fluid main-container">
+  <observer-sel [loggedAuthor]="author"></observer-sel>
+  <chat-sel [loggedAuthor]="author"
+            [openChatPanel]="openChatPanel">
+  </chat-sel>
+
+  <router-outlet></router-outlet>
+
+  <snackbar></snackbar>
+</div>
+
+<footer-sel [loggedAuthor]="author"></footer-sel>

@@ -1,0 +1,17 @@
+<div class="layout-component_no-posts-here" [hidden]="loaded">
+  <span [translate]="'LAYOUTPAGE.LOADING.POSTS'">Loading posts...</span>
+</div>
+<span [hidden]="!loaded" >
+  <posts [posts]="layoutPosts" [loggedAuthor]="loggedAuthor"></posts>
+</span>
+<div class="layout-component_button">
+  <button *ngIf="nextPage" class="btn btn-raised layout-component_button-inner" type="button" (click)="loadMore()">
+    <span [translate]="'BUTTON.LOADMORE'">Load more</span>
+  </button>
+</div>
+<div *ngIf="loggedAuthor" (click)="createPostDialog.show()" class="layout-component_create-post-button">
+  <div class="btn btn-primary btn-fab btn-raised">
+    <i class="material-icons">create</i>
+  </div>
+</div>
+<create-post-dialog (postCreated)="onPostCreated($event)"></create-post-dialog>

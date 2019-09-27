@@ -1,0 +1,120 @@
+.post-page {
+    &_jumbotron {
+        position: relative;
+    }
+
+    &_table {
+        width: 100%;
+    }
+
+    &_meta {
+        display: block;
+        padding-bottom: 19px;
+        width: 100px;
+        font-weight: bold;
+        float: left;
+        text-align: left;
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        &_author {
+            font-weight: bold;
+        }
+
+        &_picture {
+            display: block;
+            width: 80px;
+            height: 80px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }
+
+    &_content-outer {
+        margin-top: 20px;
+        font-size: 14px;
+        text-indent: 50px;
+    }
+
+    &_content-detail {
+        img {
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        iframe {
+            width: 80%;
+        }
+    }
+
+    &_content-image {
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    &_uploaded-images {
+        margin: 0px;
+        margin-top: 80px;
+        text-indent: 0px;
+    }
+
+    &_date {
+        margin-top: 5px;
+        font-size: 10px;
+        color: grey;
+    }
+
+    &_comments {
+        font-weight: normal;
+        color: #AAA;
+    }
+
+    &_update-button {
+        width: 20px;
+        cursor: pointer;
+    }
+
+    &_remove-button {
+        position: absolute;
+        right: 8px;
+        top: 10px;
+        margin: 0;
+        padding: 0;
+        width:15px;
+        height:15px;
+        cursor: pointer;
+    }
+
+    &_comment-form {
+        width: 70%;
+        margin: auto;
+
+        @media only screen and (max-device-width: 480px) {
+            width: 100%;
+        }
+    }
+
+    &_comment-button {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    &_loading-comments {
+        text-align: center;
+    }
+
+    &_load-more {
+        text-align: center;
+    }
+}

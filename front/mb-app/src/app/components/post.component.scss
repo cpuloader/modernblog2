@@ -1,0 +1,81 @@
+.post-component {
+    &_p {
+        height: 1px;
+        margin-top: 1px;
+        margin-bottom: 1px;
+    }
+
+    &_well {
+        position: relative;
+
+        a:hover {
+          text-decoration: none;
+        }
+    }
+
+    &_meta {
+        float: left;
+        width: 50px;
+        display: block;
+        margin-right: 10px;
+        margin-bottom: 5px;
+        padding-bottom: 0px;
+    }
+
+    &_author-list {
+        font-weight: bold;
+    }
+
+    &_author-picture {
+        display: block;
+        width: 50px;
+        height: 50px;
+        margin-bottom: 5px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    &_content {
+        overflow: hidden;
+        display: inline;
+        font-size: 14px;
+
+        img {
+            display: block;
+            position: relative;
+            max-width: 680px;
+            max-height: 600px;
+            width: 100%;
+            height: auto;
+            margin: auto;
+            padding: 0px;
+            margin-top: 35px;
+        }
+
+        &_inner {
+            display: inline;
+            position: relative;
+            max-width: 400px;
+            max-height: 400px;
+            overflow: hidden;
+        }
+    }
+
+    &_date {
+        margin-top: 5px;
+        font-size: 10px;
+        color: grey; /*$myred; - import styles check*/
+    }
+
+    &_remove-button {
+      position: absolute;
+      right: 8px;
+      top: 10px;
+      cursor: pointer;
+      margin: 0px;
+      padding: 0px;
+      width:15px;
+      height:15px;
+    }
+}

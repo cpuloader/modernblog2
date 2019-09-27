@@ -1,0 +1,10 @@
+<chat-panel-sel [loggedAuthor]="loggedAuthor"
+                (chatOpened)="onChatOpened($event)">
+</chat-panel-sel>
+<div *ngIf="chatDialogActive">
+  <chat-dialog-sel [loggedAuthor]="loggedAuthor"
+                   [chat]="currentChat"
+                   [chatters]="chatters"
+                   (chatDestroyed)="onChatDestroyed($event)">
+  </chat-dialog-sel>
+</div>

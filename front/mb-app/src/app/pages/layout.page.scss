@@ -1,0 +1,19 @@
+.layout-component {
+    &_no-posts-here {
+        text-align: center;
+    }
+
+    &_button {
+        text-align: center;
+
+        &_inner {
+            margin: auto;
+        }
+    }
+
+    &_create-post-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+    }
+}

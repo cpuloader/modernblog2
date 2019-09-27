@@ -1,0 +1,133 @@
+@import "../../styles/colors.scss";
+
+.chat-dialog {
+    &_content {
+        padding: 20px;
+    }
+
+    &_close {
+        position: absolute;
+        right: 8px;
+        top: 10px;
+        margin: 0px;
+        padding: 0px;
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+    }
+
+    &_members {
+        margin-right: 30px;
+    }
+
+    &_member-online {
+        display: inline-block;
+        width: 5px;
+        height: 5px;
+        border-radius: 100%;
+        margin-bottom: 1px;
+    }
+
+    &_member {
+        display: inline;
+    }
+
+    &_messages-border {
+        box-shadow: 0px 0px 5px #555555 inset;
+        padding: 5px;
+    }
+
+    &_messages {
+        height: 200px;
+        max-height: 200px;
+        overflow-y: scroll;
+        /*border: 2px solid #DDDDDD;*/
+        font-size: 14px;
+        /*background-color: #555555;*/
+
+        @media only screen and (max-device-width: 480px) {
+            height: 180px;
+        }
+    }
+
+    &_messages-loading {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    &_message-block {
+        margin: 5px;
+        padding: 5px;
+        border-radius: 1px;
+    }
+
+    &_message-username {
+        display: inline;
+    }
+
+    &_message-content {
+        display: inline;
+    }
+
+    &_message-info {
+        display: block;
+    }
+
+    &_msg-read {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        margin-left: 10px;
+    }
+
+    &_msg-read-inner {
+        color: $mb_lightgreen;
+        font-size: 12px;
+    }
+
+    &_message-date {
+        display: inline;
+        font-size: 10px;
+        color: grey;
+    }
+
+    &_error {
+        position: relative;
+
+        &_close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+        }
+    }
+
+    &_controls {
+        margin-top: 0;
+        margin-bottom: 5px;
+        padding-bottom: 5px;
+    }
+
+    &_controls-table {
+        width: 100%;
+
+        &_input {
+             width:92%;
+        }
+    }
+
+    &_input-field {
+        margin-top: 7px;
+        margin-right: 20px;
+        margin-bottom: 0;
+    }
+
+    &_input-button {
+        display: inline-block;
+        margin-top: 7px;
+        margin-bottom: 5px;
+        margin-right: 0px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}

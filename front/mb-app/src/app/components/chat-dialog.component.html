@@ -1,0 +1,68 @@
+<div class="modal fade" tabindex="-1" [ngClass]="{'in': visibleAnimate}"
+     [ngStyle]="{'display': visible ? 'block' : 'none', 'opacity': visibleAnimate ? 1 : 0}"
+     (click)="hide()">
+  <div class="modal-dialog" (click)="$event.stopPropagation()">
+    <div class="modal-content">
+      <div class="chat-dialog_content">
+        <div (click)="hide()" class="chat-dialog_close">
+          <i class="material-icons close">clear</i>
+        </div>
+        <span *ngIf="chatMembers">
+          <span *ngIf="!chatMembers.length">You are alone here</span>
+          <div *ngFor="let chatMember of chatMembers" class="chat-dialog_members">
+            <div class="chat-dialog_member-online"
+              [ngStyle]="{ 'background-color': chatMember.is_online ? '#32CD32' : 'grey' }">
+            </div>
+            <em class="chat-dialog_member">{{ chatMember.username }}</em>
+          </div>
+        </span>
+      <div class="chat-dialog_messages-border">
+        <div *ngIf="chat" class="chat-dialog_messages" autoscrollWindow [redrawWindow]="redrawWindow">
+          <p *ngIf="firstTime" class="chat-dialog_messages-loading">Loading...</p>
+          <div *ngFor="let msg of messages">
+            <div [ngStyle]="{'background-color': (msg.author.username == loggedAuthor.username) ? '#F5F5F5' : '#DEDEDE'}"
+                 class="chat-dialog_message-block">
+              <div class="chat-dialog_message-username">
+                {{ msg.author.username }}:
+              </div>
+              <div class="chat-dialog_message-content">
+                {{ msg.content }}
+              </div>
+              <div class="chat-dialog_message-info">
+                <div class="chat-dialog_message-date">{{ msg.created_at | dateFieldPipe }}</div>
+                <div *ngIf="(msg.author.username === loggedAuthor.username) && msg.checked"  class="chat-dialog_msg-read">
+                  <i class="material-icons chat-dialog_msg-read-inner">done_all</i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form role="form" (ngSubmit)="onSubmit()" #chatForm="ngForm">
+        <div [hidden]="!error" class="alert alert-danger chat-dialog_error" style="position:relative;">
+          {{ error }}
+          <i class="material-icons chat-dialog_error_close" (click)="hideError()">clear</i>
+        </div>
+
+        <div class="form-group chat-dialog_controls">
+          <table class="form-group chat-dialog_controls-table">
+            <tr>
+              <th class="chat-dialog_controls-table_input">
+                <input #chatInput type="text" class="form-control chat-dialog_input_field" id="message__content"
+                  [(ngModel)]="newMessage.content" placeholder="put some text here.."
+                  name="content" required/>
+              </th>
+              <th>
+                <button type="submit" class="btn btn-primary btn-raised chat-dialog_input_button"
+                        [disabled]="!chatForm.form.valid || firstTime">
+                  <i class="material-icons">send</i>
+                </button>
+              </th>
+            </tr>
+          </table>
+        </div>
+      </form>
+     </div>
+    </div>
+  </div>
+</div>

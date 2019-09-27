@@ -1,0 +1,43 @@
+<div class="modal fade" tabindex="-1" [ngClass]="{'in': visibleAnimate}"
+     [ngStyle]="{'display': visible ? 'block' : 'none', 'opacity': visibleAnimate ? 1 : 0}"
+     (click)="hide()">
+  <div class="modal-dialog" (click)="$event.stopPropagation()">
+    <div class="modal-content">
+      <div class="post-update-component_content">
+        <div [hidden]="!error" class="alert alert-danger">{{ error }}</div>
+        <form role="form" #postForm="ngForm">
+          <div class="form-group">
+            <label for="post__content" [translate]="'COMPONENT.UPDATEPOST.TITLE'">Post update</label>
+            <textarea #textInput id="post__content" class="form-control post-form-field" rows="5"
+                      [(ngModel)]="updatedPost.content" name="content" required>
+              {{ updatedPost.content }}
+            </textarea>
+          </div>
+        </form>
+        <div class="post-update-component_input">
+          <div class="btn btn-xs btn-file">
+            <span [translate]="'BUTTON.ADDIMAGES'">Add images</span>
+            <input type="file" (change)="uploadImages($event)" accept="images/*" multiple="multiple"/>
+          </div>
+        </div>
+        <div *ngIf="images && images.length">
+          <h6 [translate]="'COMPONENT.UPDATEPOST.ADDEDIMAGES'">Added images:</h6>
+        </div>
+        <div class="post-update-component_images-outer">
+          <div *ngFor="let image of images" class="post-update-component_images-list">
+            <img src="{{ image.picture_for_preview }}"/>
+            <i class="material-icons close post-update-component_image-remove" (click)="deleteImage(image)">clear</i>
+          </div>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-default" type="button" (click)="hide()">
+            <span [translate]="'BUTTON.CLOSE'">Close</span>
+          </button>
+          <button class="btn btn-primary" type="button" (click)="postUpdate()" [disabled]="!postForm.form.valid">
+            <span [translate]="'BUTTON.UPDATE'">Update</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
