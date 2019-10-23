@@ -1,5 +1,5 @@
 Django==1.11.24
 djangorestframework==3.9.4
 drf-nested-routers==0.91.0
-Pillow==6.1.0
+Pillow==6.2.0
 anymail==1.2
